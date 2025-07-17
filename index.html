@@ -675,7 +675,7 @@
             line-height: 1.8;
         }
 
-      /* About Section - Mobile First Approach */
+       /* About Section - Mobile First Approach */
     .about {
         background: var(--white);
         position: relative;
@@ -1026,20 +1026,99 @@
         }
     }
     
-    /* Menu Card */
+     /* Menu Section - Professional Enhancements */
+    .menu {
+        background: var(--accent-cream);
+        position: relative;
+    }
+    
+    /* Filter Tabs - Enhanced */
+    .menu-filters-container {
+        position: relative;
+        margin-bottom: 40px;
+    }
+    
+    .menu-filters {
+        display: flex;
+        gap: 8px;
+        padding: 10px 0;
+        overflow-x: auto;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+    }
+    
+    .menu-filters::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+    
+    .filter-btn {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        background: var(--white);
+        border: 1px solid var(--border-light);
+        border-radius: 50px;
+        font-weight: 500;
+        color: var(--text-dark);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    
+    .filter-btn svg {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+        transition: all 0.3s ease;
+    }
+    
+    .filter-btn.active,
+    .filter-btn:hover {
+        background: var(--primary-dark);
+        color: var(--white);
+        border-color: var(--primary-dark);
+    }
+    
+    .filter-scroll-hint {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: linear-gradient(90deg, rgba(250,248,245,0) 0%, var(--accent-cream) 50%);
+        padding: 0 20px 0 40px;
+    }
+    
+    .filter-scroll-hint svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    /* Menu Grid - Professional Layout */
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+    
+    /* Menu Card - Premium Styling */
     .menu-card {
         background: var(--white);
         border-radius: 12px;
         overflow: hidden;
-        box-shadow: var(--shadow-subtle);
-        transition: var(--transition-smooth);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         display: flex;
         flex-direction: column;
     }
     
     .menu-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-elevated);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 40px rgba(0,0,0,0.1);
     }
     
     .menu-card-image {
@@ -1052,7 +1131,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.4s ease;
+        transition: transform 0.6s ease;
     }
     
     .menu-card:hover .menu-card-image img {
@@ -1063,28 +1142,42 @@
         position: absolute;
         top: 15px;
         right: 15px;
-        background: var(--primary-gold);
-        color: var(--primary-dark);
-        padding: 4px 12px;
+        padding: 6px 12px;
         border-radius: 4px;
         font-size: 12px;
         font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: white;
+    }
+    
+    .menu-badge svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .menu-badge.chef-choice {
+        background: var(--primary-gold);
+        color: var(--primary-dark);
     }
     
     .menu-badge.bestseller {
         background: var(--primary-brown);
-        color: var(--white);
+    }
+    
+    .menu-badge.premium {
+        background: linear-gradient(135deg, #8B4513 0%, #D4AF37 100%);
     }
     
     .menu-badge.seasonal {
         background: #e67e22;
-        color: var(--white);
     }
     
     .menu-card-content {
-        padding: 25px;
+        padding: 24px;
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -1103,6 +1196,7 @@
         font-weight: 500;
         color: var(--primary-dark);
         line-height: 1.3;
+        margin-right: 15px;
     }
     
     .menu-card-price {
@@ -1110,7 +1204,6 @@
         font-weight: 600;
         color: var(--primary-brown);
         white-space: nowrap;
-        margin-left: 15px;
     }
     
     .menu-card-description {
@@ -1134,8 +1227,48 @@
         color: var(--primary-brown);
         font-weight: 600;
         background: rgba(139, 69, 19, 0.1);
-        padding: 4px 12px;
+        padding: 4px 10px;
         border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+    
+    .menu-card-category svg {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .menu-card-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .quantity-control {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(139, 69, 19, 0.1);
+        border: none;
+        color: var(--primary-brown);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    
+    .quantity-control:hover {
+        background: var(--primary-brown);
+        color: white;
+    }
+    
+    .quantity {
+        width: 20px;
+        text-align: center;
+        font-size: 14px;
     }
     
     .add-to-cart {
@@ -1143,18 +1276,19 @@
         height: 36px;
         border-radius: 50%;
         background: rgba(139, 69, 19, 0.1);
+        border: none;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: none;
         cursor: pointer;
-        transition: var(--transition-quick);
+        transition: all 0.3s ease;
     }
     
     .add-to-cart svg {
         width: 16px;
         height: 16px;
         stroke: var(--primary-brown);
+        transition: all 0.3s ease;
     }
     
     .add-to-cart:hover {
@@ -1162,7 +1296,7 @@
     }
     
     .add-to-cart:hover svg {
-        stroke: var(--white);
+        stroke: white;
     }
     
     .custom-order-btn {
@@ -1177,7 +1311,7 @@
         font-size: 12px;
         font-weight: 600;
         cursor: pointer;
-        transition: var(--transition-quick);
+        transition: all 0.3s ease;
     }
     
     .custom-order-btn svg {
@@ -1187,7 +1321,7 @@
     
     .custom-order-btn:hover {
         background: var(--primary-brown);
-        color: var(--white);
+        color: white;
     }
     
     /* View More Button */
@@ -1218,11 +1352,33 @@
         }
         
         .menu-card-image {
-            height: 180px;
+            height: 200px;
+        }
+        
+        .filter-scroll-hint {
+            display: block;
         }
         
         .menu-card-content {
             padding: 20px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .menu-card-image {
+            height: 180px;
+        }
+        
+        .menu-card-title {
+            font-size: 18px;
+        }
+        
+        .menu-card-price {
+            font-size: 16px;
+        }
+        
+        .menu-card-description {
+            font-size: 13px;
         }
     }
 
@@ -2320,20 +2476,20 @@
     </div>
 </section>
 
-    <!-- Menu Section -->
+  <!-- Menu Section -->
 <section class="menu section-padding" id="menu">
     <div class="container">
         <div class="section-header fade-in">
             <div class="section-label">Artisanal Creations</div>
             <h2 class="section-title">Signature Collection</h2>
             <p class="section-description">
-                Experience our fusion of French technique and Lebanese flavors - each pastry tells a story of craftsmanship and passion.
+                Discover our fusion of French precision and Lebanese heritage—each piece is a masterpiece crafted with premium ingredients and time-honored techniques.
             </p>
         </div>
         
-        <!-- Menu Filter Tabs -->
-        <div class="menu-filters fade-in">
-            <div class="filter-scroll">
+        <!-- Filter Tabs with Scrollable Design -->
+        <div class="menu-filters-container">
+            <div class="menu-filters fade-in">
                 <button class="filter-btn active" data-filter="all">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"></path>
@@ -2345,7 +2501,7 @@
                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                     </svg>
-                    Pastries
+                    Viennoiserie
                 </button>
                 <button class="filter-btn" data-filter="cakes">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2355,7 +2511,7 @@
                         <path d="M6 8h12"></path>
                         <path d="M6 14h12"></path>
                     </svg>
-                    Cakes
+                    Entremets
                 </button>
                 <button class="filter-btn" data-filter="chocolates">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2364,7 +2520,7 @@
                         <path d="M12 8v4"></path>
                         <path d="M12 15h.01"></path>
                     </svg>
-                    Chocolates
+                    Confections
                 </button>
                 <button class="filter-btn" data-filter="seasonal">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2381,8 +2537,13 @@
                         <path d="M5 12h.01"></path>
                         <path d="M3 20c8 0 10-16 18-16"></path>
                     </svg>
-                    Vegan
+                    Plant-Based
                 </button>
+            </div>
+            <div class="filter-scroll-hint mobile-only">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
             </div>
         </div>
         
@@ -2391,9 +2552,14 @@
             <!-- Menu Item 1 -->
             <div class="menu-card scale-in delay-1" data-category="pastries">
                 <div class="menu-card-image">
-                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&h=600&fit=crop&auto=format" alt="French Croissants" loading="lazy">
-                    <div class="menu-badge">
-                        <span>Chef's Choice</span>
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&h=600&fit=crop&auto=format" 
+                         alt="Artisanal French Croissants" 
+                         loading="lazy">
+                    <div class="menu-badge chef-choice">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z"></path>
+                        </svg>
+                        Chef's Selection
                     </div>
                 </div>
                 <div class="menu-card-content">
@@ -2402,17 +2568,28 @@
                         <span class="menu-card-price">12,000 L.L.</span>
                     </div>
                     <p class="menu-card-description">
-                        Buttery, flaky viennoiserie made with AOP Normandy butter, baked fresh at 4AM daily to achieve the perfect golden layers.
+                        Laminated with AOP Normandy butter, baked to golden perfection with 32 distinct layers. Served warm from 7-10AM daily.
                     </p>
                     <div class="menu-card-footer">
-                        <span class="menu-card-category">Classic Pastry</span>
-                        <button class="add-to-cart" aria-label="Add to cart">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        <span class="menu-card-category">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                                <line x1="7" y1="7" x2="7.01" y2="7"></line>
                             </svg>
-                        </button>
+                            Breakfast
+                        </span>
+                        <div class="menu-card-actions">
+                            <button class="quantity-control minus" aria-label="Decrease quantity">−</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-control plus" aria-label="Increase quantity">+</button>
+                            <button class="add-to-cart">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2420,9 +2597,16 @@
             <!-- Menu Item 2 -->
             <div class="menu-card scale-in delay-2" data-category="cakes">
                 <div class="menu-card-image">
-                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&h=600&fit=crop&auto=format" alt="Chocolate Fondant" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&h=600&fit=crop&auto=format" 
+                         alt="Chocolate Fondant" 
+                         loading="lazy">
                     <div class="menu-badge bestseller">
-                        <span>Bestseller</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <polyline points="17 11 19 13 23 9"></polyline>
+                        </svg>
+                        Bestseller
                     </div>
                 </div>
                 <div class="menu-card-content">
@@ -2431,17 +2615,31 @@
                         <span class="menu-card-price">45,000 L.L.</span>
                     </div>
                     <p class="menu-card-description">
-                        Decadent 70% Valrhona chocolate core encased in a delicate cake shell, served with house-made vanilla bean ice cream.
+                        70% Valrhona Guanaja chocolate core with raspberry coulis center. Accompanied by Tahitian vanilla bean ice cream.
                     </p>
                     <div class="menu-card-footer">
-                        <span class="menu-card-category">Signature Dessert</span>
-                        <button class="add-to-cart" aria-label="Add to cart">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        <span class="menu-card-category">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                                <line x1="6" y1="1" x2="6" y2="4"></line>
+                                <line x1="10" y1="1" x2="10" y2="4"></line>
+                                <line x1="14" y1="1" x2="14" y2="4"></line>
                             </svg>
-                        </button>
+                            Dessert
+                        </span>
+                        <div class="menu-card-actions">
+                            <button class="quantity-control minus" aria-label="Decrease quantity">−</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-control plus" aria-label="Increase quantity">+</button>
+                            <button class="add-to-cart">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2449,7 +2647,9 @@
             <!-- Menu Item 3 -->
             <div class="menu-card scale-in delay-3" data-category="pastries">
                 <div class="menu-card-image">
-                    <img src="https://images.unsplash.com/photo-1587241321921-91a834d6d191?w=800&h=600&fit=crop&auto=format" alt="Parisian Éclairs" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1587241321921-91a834d6d191?w=800&h=600&fit=crop&auto=format" 
+                         alt="Parisian Éclairs" 
+                         loading="lazy">
                 </div>
                 <div class="menu-card-content">
                     <div class="menu-card-header">
@@ -2457,17 +2657,27 @@
                         <span class="menu-card-price">18,000 L.L.</span>
                     </div>
                     <p class="menu-card-description">
-                        Classic choux pastry piped with Tahitian vanilla custard and enrobed in single-origin Ecuadorian chocolate glaze.
+                        Choux pastry filled with vanilla bourbon custard and glazed with single-origin Ecuadorian chocolate.
                     </p>
                     <div class="menu-card-footer">
-                        <span class="menu-card-category">French Classic</span>
-                        <button class="add-to-cart" aria-label="Add to cart">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        <span class="menu-card-category">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 11h19M12 3v19M7.5 3h9M7.5 21h9"></path>
                             </svg>
-                        </button>
+                            Afternoon
+                        </span>
+                        <div class="menu-card-actions">
+                            <button class="quantity-control minus" aria-label="Decrease quantity">−</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-control plus" aria-label="Increase quantity">+</button>
+                            <button class="add-to-cart">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2475,7 +2685,15 @@
             <!-- Menu Item 4 -->
             <div class="menu-card scale-in delay-4" data-category="chocolates">
                 <div class="menu-card-image">
-                    <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=800&h=600&fit=crop&auto=format" alt="Artisan Chocolates" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=800&h=600&fit=crop&auto=format" 
+                         alt="Artisan Chocolates" 
+                         loading="lazy">
+                    <div class="menu-badge premium">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z"></path>
+                        </svg>
+                        Premium
+                    </div>
                 </div>
                 <div class="menu-card-content">
                     <div class="menu-card-header">
@@ -2483,27 +2701,45 @@
                         <span class="menu-card-price">55,000 L.L.</span>
                     </div>
                     <p class="menu-card-description">
-                        Hand-tempered Belgian couverture with Lebanese flavors: Bekaa Valley rose, Akkar pistachio, and Zahle orange blossom.
+                        Belgian couverture with Bekaa Valley rose, Akkar pistachio, and Zahle orange blossom. 16-piece assortment.
                     </p>
                     <div class="menu-card-footer">
-                        <span class="menu-card-category">Premium Selection</span>
-                        <button class="add-to-cart" aria-label="Add to cart">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        <span class="menu-card-category">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                             </svg>
-                        </button>
+                            Gift Box
+                        </span>
+                        <div class="menu-card-actions">
+                            <button class="quantity-control minus" aria-label="Decrease quantity">−</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-control plus" aria-label="Increase quantity">+</button>
+                            <button class="add-to-cart">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <!-- Menu Item 5 -->
-            <div class="menu-card scale-in delay-5" data-category="cakes seasonal">
+            <div class="menu-card scale-in delay-5" data-category="seasonal">
                 <div class="menu-card-image">
-                    <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=800&h=600&fit=crop&auto=format" alt="Seasonal Fruit Tart" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=800&h=600&fit=crop&auto=format" 
+                         alt="Seasonal Fruit Tart" 
+                         loading="lazy">
                     <div class="menu-badge seasonal">
-                        <span>Seasonal</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2a3 3 0 0 0-3 3c0 1.12.86 2 1.5 2.5L12 10l1.5-2.5c.64-.5 1.5-1.38 1.5-2.5a3 3 0 0 0-3-3z"></path>
+                            <path d="M12 2v8"></path>
+                            <path d="M5 12a7 7 0 1 0 14 0 7 7 0 1 0-14 0"></path>
+                            <path d="M12 22v-8"></path>
+                        </svg>
+                        Seasonal
                     </div>
                 </div>
                 <div class="menu-card-content">
@@ -2512,25 +2748,37 @@
                         <span class="menu-card-price">38,000 L.L.</span>
                     </div>
                     <p class="menu-card-description">
-                        Crisp pâte sucrée with vanilla-specked pastry cream and market-fresh fruits - currently featuring figs and raspberries.
+                        Pâte sablée with vanilla-specked pastry cream and market-fresh fruits (currently featuring figs and raspberries).
                     </p>
                     <div class="menu-card-footer">
-                        <span class="menu-card-category">Farm to Table</span>
-                        <button class="add-to-cart" aria-label="Add to cart">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        <span class="menu-card-category">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                             </svg>
-                        </button>
+                            Farm to Table
+                        </span>
+                        <div class="menu-card-actions">
+                            <button class="quantity-control minus" aria-label="Decrease quantity">−</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-control plus" aria-label="Increase quantity">+</button>
+                            <button class="add-to-cart">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <!-- Menu Item 6 -->
-            <div class="menu-card scale-in delay-6" data-category="seasonal">
+            <div class="menu-card scale-in delay-6" data-category="cakes">
                 <div class="menu-card-image">
-                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=800&h=600&fit=crop&auto=format" alt="Custom Celebrations" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=800&h=600&fit=crop&auto=format" 
+                         alt="Custom Celebration Cake" 
+                         loading="lazy">
                 </div>
                 <div class="menu-card-content">
                     <div class="menu-card-header">
@@ -2538,12 +2786,17 @@
                         <span class="menu-card-price">From 200,000 L.L.</span>
                     </div>
                     <p class="menu-card-description">
-                        Bespoke creations for life's milestones - consult with our pastry artists to design your dream celebration cake.
+                        Bespoke creations for life's milestones. Consult with our pastry artists to design your dream celebration cake.
                     </p>
                     <div class="menu-card-footer">
-                        <span class="menu-card-category">Made to Order</span>
+                        <span class="menu-card-category">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                            Made to Order
+                        </span>
                         <button class="custom-order-btn">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M12 20h9"></path>
                                 <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                             </svg>
@@ -2557,7 +2810,7 @@
         <!-- View More Button -->
         <div class="view-more-container fade-in">
             <button class="btn btn-outline view-more-btn">
-                View Full Menu
+                Explore Full Menu
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
@@ -2681,8 +2934,38 @@
                     </div>
                 </div>
                 
+                <div class="gallery-item scale-in delay-7" data-post-url="https://www.instagram.com/nougibeirut/">
+                    <img src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?w=400&h=400&fit=crop&auto=format" alt="Behind the Scenes - NOUGI Beirut" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <div class="gallery-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </div>
+                            <div class="gallery-caption">Behind the scenes magic 👨‍🍳</div>
+                            <div class="gallery-date">Visit @nougibeirut</div>
+                        </div>
+                    </div>
+                </div>
                 
-                
+                <div class="gallery-item scale-in delay-8" data-post-url="https://www.instagram.com/nougibeirut/">
+                    <img src="https://images.unsplash.com/photo-1486427944299-bb1a5b25b9f5?w=400&h=400&fit=crop&auto=format" alt="Morning Pastries - NOUGI Beirut" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <div class="gallery-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </div>
+                            <div class="gallery-caption">Morning pastry selection ☀️</div>
+                            <div class="gallery-date">Visit @nougibeirut</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
