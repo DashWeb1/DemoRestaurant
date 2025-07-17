@@ -675,44 +675,61 @@
             line-height: 1.8;
         }
 
-       /* About Section Styles */
+      /* About Section - Mobile First Approach */
     .about {
         background: var(--white);
         position: relative;
     }
     
     .about-content {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 40px;
-        align-items: center;
-    }
-    
-    @media (min-width: 992px) {
-        .about-content {
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
     }
     
     /* Text Content */
     .about-text {
-        padding-top: 20px;
+        order: 1;
     }
     
     .about-description {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
+    }
+    
+    .description-block {
+        margin-bottom: 25px;
     }
     
     .drop-cap {
         float: left;
-        font-size: 56px;
-        line-height: 50px;
+        font-size: 42px;
+        line-height: 36px;
         padding-top: 8px;
         padding-right: 8px;
         font-weight: 700;
         color: var(--primary-brown);
         font-family: 'Playfair Display', serif;
+    }
+    
+    .highlight-box {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        background: rgba(139, 69, 19, 0.05);
+        border-left: 3px solid var(--primary-brown);
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 8px 8px 0;
+    }
+    
+    .highlight-box svg {
+        flex-shrink: 0;
+        color: var(--primary-brown);
+    }
+    
+    .highlight-box p {
+        margin: 0;
+        font-size: 15px;
     }
     
     .signature {
@@ -724,8 +741,8 @@
     }
     
     .signature img {
-        height: 40px;
-        margin-right: 15px;
+        height: 36px;
+        margin-right: 12px;
         filter: brightness(0.8);
     }
     
@@ -737,7 +754,8 @@
     
     .premium-ingredients {
         list-style: none;
-        margin: 25px 0;
+        margin: 20px 0;
+        padding: 0;
     }
     
     .premium-ingredients li {
@@ -751,17 +769,31 @@
     .premium-ingredients svg {
         margin-right: 10px;
         color: var(--primary-brown);
+        flex-shrink: 0;
     }
     
-    /* Stats */
-    .stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-        margin: 40px 0;
+    /* Stats Container - Horizontal Scroll on Mobile */
+    .stats-container {
+        position: relative;
+        margin: 30px 0;
+    }
+    
+    .stats-scroller {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 15px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .stats-scroller::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
     }
     
     .stat-item {
+        flex: 0 0 auto;
+        width: 160px;
         text-align: center;
         padding: 20px 15px;
         background: var(--accent-cream);
@@ -769,21 +801,16 @@
         transition: var(--transition-smooth);
     }
     
-    .stat-item:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-subtle);
-    }
-    
     .stat-number {
         font-family: 'Playfair Display', serif;
-        font-size: 32px;
+        font-size: 28px;
         font-weight: 700;
         color: var(--primary-brown);
         margin-bottom: 5px;
     }
     
     .stat-label {
-        font-size: 13px;
+        font-size: 12px;
         text-transform: uppercase;
         letter-spacing: 1px;
         color: var(--text-light);
@@ -799,17 +826,33 @@
         height: 14px;
     }
     
+    .scroll-indicator {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        position: absolute;
+        right: 0;
+        bottom: -5px;
+        font-size: 12px;
+        color: var(--text-light);
+    }
+    
+    .scroll-indicator svg {
+        width: 16px;
+        height: 16px;
+    }
+    
     /* CTA Buttons */
     .cta-buttons {
         display: flex;
         flex-wrap: wrap;
-        gap: 15px;
-        margin-top: 30px;
+        gap: 12px;
+        margin-top: 20px;
     }
     
     .cta-buttons .btn {
         flex: 1 1 auto;
-        min-width: 180px;
+        min-width: 100%;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -818,9 +861,7 @@
     
     /* Image Content */
     .about-image {
-        position: relative;
-        border-radius: 12px;
-        overflow: hidden;
+        order: 2;
     }
     
     .image-container {
@@ -833,32 +874,28 @@
     .main-image {
         width: 100%;
         height: auto;
+        max-height: 400px;
         object-fit: cover;
         transition: transform 0.4s ease;
     }
     
-    .about-image:hover .main-image {
-        transform: scale(1.02);
-    }
-    
     .image-badge {
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 15px;
+        right: 15px;
         background: rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(10px);
         border-radius: 8px;
-        padding: 12px 15px;
+        padding: 10px 12px;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         box-shadow: var(--shadow-subtle);
-        transform: rotate(5deg);
     }
     
     .badge-icon {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         background: var(--primary-gold);
         color: var(--primary-dark);
         border-radius: 50%;
@@ -869,8 +906,8 @@
     }
     
     .badge-icon svg {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
     }
     
     .badge-content {
@@ -879,85 +916,101 @@
     }
     
     .badge-content span {
-        font-size: 11px;
+        font-size: 10px;
         text-transform: uppercase;
         letter-spacing: 1px;
         color: var(--text-light);
     }
     
     .badge-content strong {
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 700;
         color: var(--primary-dark);
     }
     
     .team-quote {
-        margin-top: 30px;
-        padding: 25px;
+        margin-top: 20px;
+        padding: 20px;
         background: var(--accent-cream);
         border-radius: 12px;
-        position: relative;
     }
     
     .team-quote blockquote {
         font-family: 'Playfair Display', serif;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 1.6;
         color: var(--primary-dark);
         font-style: italic;
-        margin-bottom: 15px;
-        position: relative;
-        padding-left: 30px;
-    }
-    
-    .team-quote blockquote::before {
-        content: '"';
-        position: absolute;
-        left: 0;
-        top: -10px;
-        font-size: 50px;
-        color: var(--primary-brown);
-        opacity: 0.2;
-        font-family: serif;
-        line-height: 1;
+        margin-bottom: 12px;
     }
     
     .quote-author {
         text-align: right;
-        font-size: 14px;
+        font-size: 13px;
         color: var(--text-light);
         font-weight: 500;
     }
     
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
+    /* Desktop Layout */
+    @media (min-width: 768px) {
+        .about-content {
+            flex-direction: row;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            order: 1;
+            padding-top: 40px;
+        }
+        
+        .about-image {
+            flex: 1;
+            order: 2;
+        }
+        
         .drop-cap {
-            font-size: 42px;
-            line-height: 40px;
+            font-size: 56px;
+            line-height: 50px;
         }
         
-        .stats {
-            grid-template-columns: 1fr;
+        .stats-scroller {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            overflow-x: visible;
+            gap: 15px;
         }
         
-        .image-badge {
-            top: 10px;
-            right: 10px;
-            padding: 8px 10px;
+        .stat-item {
+            width: auto;
         }
         
-        .team-quote {
-            padding: 20px;
+        .scroll-indicator {
+            display: none;
         }
         
         .cta-buttons .btn {
-            min-width: 100%;
+            min-width: 180px;
+        }
+        
+        .main-image {
+            height: 500px;
+        }
+        
+        .team-quote {
+            padding: 25px;
+        }
+        
+        .team-quote blockquote {
+            font-size: 18px;
         }
     }
     
+    /* Utility Classes */
     .mobile-only {
         display: block;
-    }           
+    }
     
     .desktop-only {
         display: none;
@@ -971,68 +1024,6 @@
         .desktop-only {
             display: block;
         }
-    }
-
-        /* Menu Section Styles */
-    .menu {
-        background: var(--accent-cream);
-        position: relative;
-    }
-    
-    /* Filter Tabs */
-    .menu-filters {
-        margin-bottom: 40px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 10px;
-    }
-    
-    .filter-scroll {
-        display: flex;
-        gap: 8px;
-        padding: 5px;
-        width: max-content;
-    }
-    
-    .filter-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 20px;
-        background: var(--white);
-        border: 1px solid var(--border-light);
-        border-radius: 50px;
-        font-weight: 500;
-        color: var(--text-dark);
-        cursor: pointer;
-        transition: var(--transition-quick);
-        font-size: 14px;
-        white-space: nowrap;
-    }
-    
-    .filter-btn svg {
-        width: 16px;
-        height: 16px;
-    }
-    
-    .filter-btn.active,
-    .filter-btn:hover {
-        background: var(--primary-dark);
-        color: var(--white);
-        border-color: var(--primary-dark);
-    }
-    
-    .filter-btn.active svg,
-    .filter-btn:hover svg {
-        stroke: var(--white);
-    }
-    
-    /* Menu Grid */
-    .menu-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-bottom: 40px;
     }
     
     /* Menu Card */
@@ -2159,101 +2150,122 @@
     </div>
 </section>
 
-   <!-- About Section -->
+  <!-- About Section -->
 <section class="about section-padding" id="about">
     <div class="container">
-        <div class="section-header fade-in mobile-only">
+        <div class="section-header mobile-only fade-in">
             <div class="section-label">Our Story</div>
             <h2 class="section-title">A Legacy of Culinary Excellence</h2>
         </div>
 
         <div class="about-content">
-            <!-- Text Content -->
-            <div class="about-text slide-left">
+            <!-- Text Content - Stacked first on mobile -->
+            <div class="about-text">
                 <div class="section-label desktop-only">Our Heritage</div>
                 <h2 class="desktop-only">A Legacy of Culinary Excellence</h2>
                 
                 <div class="about-description">
-                    <p>
-                        <span class="drop-cap">F</span>ounded in 2010, NOUGI represents the perfect fusion of French pastry artistry 
-                        and Lebanese hospitality. Our founder, trained under master pâtissiers in Paris at 
-                        renowned establishments like Ladurée and Pierre Hermé, brought these refined techniques 
-                        to the heart of Beirut.
-                    </p>
-                    
-                    <div class="signature">
-                        <img src="https://i.imgur.com/JqYeZvn.png" alt="Chef's Signature" loading="lazy">
-                        <span>Chef Michel Habib, Founder</span>
+                    <div class="description-block">
+                        <p>
+                            <span class="drop-cap">F</span>ounded in 2010, NOUGI represents the perfect fusion of French pastry artistry and Lebanese hospitality. Our founder trained under master pâtissiers at Paris's most prestigious establishments before bringing these refined techniques to Beirut.
+                        </p>
+                        <div class="signature">
+                            <img src="https://i.imgur.com/JqYeZvn.png" alt="Chef's Signature" loading="lazy">
+                            <span>Chef Michel Habib, Founder</span>
+                        </div>
                     </div>
                     
-                    <p>
-                        Each morning at 4 AM, our team of award-winning pastry chefs begins crafting 
-                        extraordinary delicacies using only the finest imported ingredients:
-                    </p>
-                    
-                    <ul class="premium-ingredients">
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    <div class="description-block">
+                        <div class="highlight-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
                             </svg>
-                            French AOP butter from Normandy
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                            </svg>
-                            Belgian Callebaut chocolate
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                            </svg>
-                            Organic Lebanese pistachios
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                            </svg>
-                            Madagascar vanilla beans
-                        </li>
-                    </ul>
+                            <p>Recognized by <strong>Gault & Millau</strong> as Beirut's most authentic French-Lebanese patisserie since 2018</p>
+                        </div>
+                        
+                        <p>Each morning at 4 AM, our team begins crafting with only the finest ingredients:</p>
+                        
+                        <ul class="premium-ingredients">
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                                French AOP butter from Normandy
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                                Belgian Callebaut chocolate
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                                Organic Lebanese pistachios
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                                Madagascar vanilla beans
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <!-- Achievement Stats -->
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="15">0</div>
-                        <div class="stat-label">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                            </svg>
-                            Years Excellence
+                <!-- Achievement Stats - Horizontal scroll on mobile -->
+                <div class="stats-container">
+                    <div class="stats-scroller">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="15">0</div>
+                            <div class="stat-label">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                Years Excellence
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="50">0</div>
+                            <div class="stat-label">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                                Daily Creations
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="1000">0</div>
+                            <div class="stat-label">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                                Happy Customers
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="12">0</div>
+                            <div class="stat-label">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z"></path>
+                                </svg>
+                                Awards Won
+                            </div>
                         </div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="50">0</div>
-                        <div class="stat-label">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                            Daily Creations
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="1000">0</div>
-                        <div class="stat-label">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                            Happy Customers
-                        </div>
+                    <div class="scroll-indicator mobile-only">
+                        <span>Scroll horizontally</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
                     </div>
                 </div>
                 
@@ -2265,17 +2277,19 @@
                         </svg>
                         Visit Our Pâtisserie
                     </a>
-                    <a href="#menu" class="btn btn-outline">
+                    <a href="#gallery" class="btn btn-outline">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 11h19M3 6h19M3 16h19M3 21h19"></path>
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
                         </svg>
-                        View Our Menu
+                        View Gallery
                     </a>
                 </div>
             </div>
             
-            <!-- Image Content -->
-            <div class="about-image slide-right">
+            <!-- Image Content - Stacked below text on mobile -->
+            <div class="about-image">
                 <div class="image-container">
                     <img src="https://images.unsplash.com/photo-1587241321921-91a834d6d191?w=800&h=600&fit=crop&auto=format" 
                          alt="NOUGI Master Chef preparing pastries" 
@@ -3512,6 +3526,40 @@
                 console.log('Added to cart');
             });
         });
+    });
+     // Animated counter for statistics
+    document.addEventListener('DOMContentLoaded', function() {
+        const animateCounter = (element, target, duration = 2000) => {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    clearInterval(timer);
+                    current = target;
+                }
+                element.textContent = Math.floor(current) + (target >= 1000 ? '+' : '');
+            }, 16);
+        };
+        
+        // Start animation when section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stats = entry.target.querySelectorAll('.stat-number');
+                    stats.forEach(stat => {
+                        const target = parseInt(stat.getAttribute('data-count'));
+                        animateCounter(stat, target);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        const aboutSection = document.querySelector('.about');
+        if (aboutSection) observer.observe(aboutSection);
     });
     </script>
 </body>
